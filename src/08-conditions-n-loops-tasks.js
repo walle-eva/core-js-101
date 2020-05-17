@@ -208,12 +208,14 @@ function findFirstSingleChar(str) {
       count[arr[i]] += 1;
     }
   }
+  /*
   for (let key in count) {
     if (count[key] === 1) {
       min = key;
       break;
     }
   }
+  */
   return min;
 }
 
