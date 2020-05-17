@@ -242,8 +242,33 @@ function findFirstSingleChar(str) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
-  throw new Error('Not implemented');
+function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  let interval = '';
+  if ((a < b) && (isStartIncluded === false) && (isEndIncluded === false)) {
+    interval = `(${a}, ${b})`;
+  }
+  if ((a < b) && (isStartIncluded === false) && (isEndIncluded === true)) {
+    interval = `(${a}, ${b}]`;
+  }
+  if ((a < b) && (isStartIncluded === true) && (isEndIncluded === false)) {
+    interval = `[${a}, ${b})`;
+  }
+  if ((a < b) && (isStartIncluded === true) && (isEndIncluded === true)) {
+    interval = `[${a}, ${b}]`;
+  }
+  if ((a > b) && (isStartIncluded === false) && (isEndIncluded === false)) {
+    interval = `(${b}, ${a})`;
+  }
+  if ((a > b) && (isStartIncluded === false) && (isEndIncluded === true)) {
+    interval = `[${b}, ${a})`;
+  }
+  if ((a > b) && (isStartIncluded === true) && (isEndIncluded === false)) {
+    interval = `(${b}, ${a}]`;
+  }
+  if ((a > b) && (isStartIncluded === true) && (isEndIncluded === true)) {
+    interval = `[${b}, ${a}]`;
+  }
+  return interval;
 }
 
 
@@ -259,8 +284,10 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  const arr = str.split('');
+  arr.reverse();
+  return arr.join('');
 }
 
 
@@ -276,8 +303,10 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  const arr = String(num).split('');
+  arr.reverse();
+  return Number(arr.join(''));
 }
 
 
